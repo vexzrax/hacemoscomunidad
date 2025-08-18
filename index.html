@@ -8,12 +8,23 @@
 <body>
   <!-- Loading Screen -->
   <div id="loading-screen">
-    <img src="red-techno.gif" alt="Loading..." />
+    <div class="loading-box">
+      <span class="techno">CARGANDO</span>
+      <div class="techno-bar"></div>
+    </div>
   </div>
 
-  <!-- Background Music -->
-  <audio id="bg-music" src="https://www.youtube.com/watch?v=aGSKrC7dGcY&ab_channel=DepecheModeVEVO" autoplay loop></audio>
-
+  <!-- Background Music (YouTube Embed) -->
+  <div id="music-container">
+    <iframe
+      id="bg-music"
+      width="0" height="0"
+      src="https://www.youtube.com/embed/aGSKrC7dGcY?autoplay=1&loop=1&playlist=aGSKrC7dGcY&mute=1"
+      frameborder="0"
+      allow="autoplay"
+      style="display: none;"
+    ></iframe>
+  </div>
   <!-- Sound Button -->
   <button id="sound-btn" class="round-sound-btn" aria-label="Sound">
     <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -40,6 +51,7 @@
         document.getElementById('loading-screen').style.display = 'none';
       }, 1400); // 1.4s loading
     };
+
     // BUTTON BLUR EFFECT
     document.querySelectorAll('.team-btn').forEach(btn => {
       btn.addEventListener('mouseenter', function() {
@@ -61,11 +73,20 @@
     document.querySelector('.progress-btn').onclick = function() {
       window.location.href = this.dataset.link;
     };
-    // SOUND BUTTON (mute/unmute)
+
+    // SOUND BUTTON (mute/unmute YouTube iframe)
     const soundBtn = document.getElementById('sound-btn');
-    const audio = document.getElementById('bg-music');
+    let isMuted = true;
     soundBtn.onclick = () => {
-      audio.muted = !audio.muted;
+      const iframe = document.getElementById('bg-music');
+      // Use postMessage to control YouTube mute/unmute
+      // https://developers.google.com/youtube/iframe_api_reference
+      if (isMuted) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+      } else {
+        iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+      }
+      isMuted = !isMuted;
     };
   </script>
 </body>
