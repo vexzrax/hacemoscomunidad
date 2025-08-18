@@ -1,20 +1,14 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: linear-gradient(to right, 
-    rgba(255,255,255,1) 50%, 
-    rgba(255,255,255,0.5) 60%, 
-    rgba(139,0,0,0.95) 100%
-  );
+  background: #fff;
   margin: 0;
   min-height: 100vh;
   position: relative;
-  /* Half background image, fade tto white */
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,1) 50%, rgba(255,255,255,0.7) 60%, rgba(139,0,0,0.95) 100%),
-    url('https://media.gettyimages.com/id/1454425463/es/v%C3%ADdeo/hombre-abriendo-port%C3%A1til-y-comenzando-a-trabajar-primer-plano.jpg?s=640x640&k=20&c=39zdrx8ReuHWoFsL00RJkEXygcbQmGBdr385rbR3oXY=');
+  /* Fondo de la web: fondo.png */
+  background-image: url('fondo.png');
   background-repeat: no-repeat;
-  background-size: 50vw 100vh, cover;
-  background-position: left center, left center;
+  background-size: cover;
+  background-position: center center;
 }
 #loading-screen {
   position: fixed;
