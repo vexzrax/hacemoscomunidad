@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sofia Pedroza - Equipo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .profile-container {
+      display: flex;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(195,9,19,0.08);
+      max-width: 720px;
+      margin: 80px auto 0 auto;
+      padding: 36px 32px;
+      gap: 44px;
+      align-items: center;
+    }
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #eee;
+      border: 4px solid #C30913;
+      margin-bottom: 18px;
+    }
+    .list-courier {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      margin-top: 18px;
+      margin-bottom: 0;
+      color: #222;
+      list-style: disc inside;
+      padding-left: 0;
+    }
+    .profile-details {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 220px;
+    }
+    .profile-desc {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.04rem;
+      color: #333;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 26px 16px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(195,9,19,0.05);
+    }
+    @media (max-width: 800px) {
+      .profile-container { flex-direction: column; padding: 16px 8px; gap: 22px; }
+      .profile-img { width: 110px; height: 110px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div>
+      <img src="sofia-pedroza.jpg" alt="Sofia Pedroza" class="profile-img">
+      <ul class="list-courier">
+        <li>Organización</li>
+        <li>Liderazgo</li>
+        <li>Comunicación</li>
+        <li>Adaptabilidad</li>
+        <li>Proactividad</li>
+      </ul>
+    </div>
+    <div class="profile-details">
+      <div class="profile-desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. <br><br>
+        Etiam sit amet quam vitae odio varius gravida. Integer non feugiat lorem. Etiam dictum, sapien at ultricies gravida, leo erat venenatis urna.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡CONOCE A MI EQUIPO!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img src="red-techno.gif" alt="Loading..." />
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" src="enjoy-the-silence.mp3" autoplay loop></audio>
+
+  <!-- Sound Button -->
+  <button id="sound-btn" class="round-sound-btn" aria-label="Sound">
+    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="12" fill="#C30913"/>
+      <path d="M7 9v6h4l5 5V4l-5 5H7z" fill="#fff"/>
+    </svg>
+  </button>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>¡CONOCE A MI EQUIPO!</h1>
+    <div class="btn-group">
+      <button class="team-btn" data-link="sofia-moreno.html">SOFIA MORENO</button>
+      <button class="team-btn" data-link="sofia-pedroza.html">SOFIA PEDROZA</button>
+      <button class="team-btn" data-link="santiago-ortuno.html">SANTIAGO ORTUÑO</button>
+    </div>
+    <button class="progress-btn" data-link="progress.html">PROGRESO</button>
+  </div>
+
+  <script>
+    // LOADING SCREEN
+    window.onload = function() {
+      setTimeout(() => {
+        document.getElementById('loading-screen').style.display = 'none';
+      }, 1400); // 1.4s loading
+    };
+    // BUTTON BLUR EFFECT
+    document.querySelectorAll('.team-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', function() {
+        document.querySelectorAll('.team-btn').forEach(b => {
+          if (b !== btn) {
+            b.classList.add('blurred');
+          } else {
+            b.classList.remove('blurred');
+          }
+        });
+      });
+      btn.addEventListener('mouseleave', function() {
+        document.querySelectorAll('.team-btn').forEach(b => b.classList.remove('blurred'));
+      });
+      btn.addEventListener('click', function() {
+        window.location.href = btn.dataset.link;
+      });
+    });
+    document.querySelector('.progress-btn').onclick = function() {
+      window.location.href = this.dataset.link;
+    };
+    // SOUND BUTTON (mute/unmute)
+    const soundBtn = document.getElementById('sound-btn');
+    const audio = document.getElementById('bg-music');
+    soundBtn.onclick = () => {
+      audio.muted = !audio.muted;
+    };
+  </script>
+</body>
+</html>
