@@ -14,50 +14,21 @@ body {
   position: fixed;
   z-index: 9999;
   top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #8B0000; /* rojo oscuro */
+  background: #000; /* opcional: negro para mejor transición */
 }
-.loading-box {
-  width: 300px;
-  height: 300px;
-  background: #fff;
-  border-radius: 32px;
-  box-shadow: 0 8px 32px rgba(139,0,0,0.22);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.techno {
-  color: #8B0000;
-  font-size: 2.2rem;
-  font-family: 'Orbitron', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.18em;
-  text-align: center;
-  animation: techno-flicker 1.2s infinite alternate;
-}
-@keyframes techno-flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; text-shadow: 0 0 4px #C30913, 0 0 14px #fff; }
-  100% { opacity: 1; }
-}
-.techno-bar {
-  width: 80%;
-  height: 12px;
-  background: linear-gradient(90deg, #C30913 0%, #fff 100%);
-  border-radius: 6px;
-  margin-top: 40px;
-  animation: techno-bar-move 1.4s infinite linear;
-}
-@keyframes techno-bar-move {
-  0% { background-position: 0% 0; }
-  100% { background-position: 100% 0; }
+.loading-gif {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 
+/* El resto del CSS se mantiene igual, puedes dejarlo sin cambios */
 .container {
   max-width: 480px;
   margin: 80px auto 0 auto;
@@ -143,6 +114,6 @@ h1 {
   h1 { font-size: 1.3rem; }
   .team-btn, .progress-btn { font-size: 0.93rem; padding: 12px 16px; }
   .round-sound-btn { right: 12px; top: 16px; width: 40px; height: 40px; }
-  .loading-box { width: 180px; height: 180px; }
-  .techno { font-size: 1.2rem; }
+  .loading-gif { width: 100vw; height: 100vh; }
 }
+
