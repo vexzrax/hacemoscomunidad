@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>¡CONOCE A MI EQUIPO!</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Cursor rojo personalizado SVG */
+    body, html, * {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="red"/></svg>') 16 16, auto;
+    }
+  </style>
 </head>
 <body>
   <!-- Loading Screen -->
@@ -11,16 +17,9 @@
     <img src="https://i.pinimg.com/originals/7d/b6/23/7db623e4514e37914168ff09f6516cec.gif" alt="loading gif" class="loading-gif" />
   </div>
 
-  <!-- Background Music (YouTube Embed) -->
+  <!-- Background Music (audio) -->
   <div id="music-container">
-    <iframe
-      id="bg-music"
-      width="0" height="0"
-      src="dm.mp3"
-      frameborder="0"
-      allow="autoplay"
-      style="display: none;"
-    ></iframe>
+    <audio id="bg-music" src="dm.mp3" loop autoplay style="display:none;"></audio>
   </div>
   <!-- Sound Button -->
   <button id="sound-btn" class="round-sound-btn" aria-label="Sound">
@@ -71,17 +70,19 @@
       window.location.href = this.dataset.link;
     };
 
-    // SOUND BUTTON (mute/unmute YouTube iframe)
+    // SOUND BUTTON (mute/unmute audio)
     const soundBtn = document.getElementById('sound-btn');
+    const audio = document.getElementById('bg-music');
     let isMuted = true;
+
+    // Iniciar silenciado
+    audio.volume = 0;
+
     soundBtn.onclick = () => {
-      const iframe = document.getElementById('bg-music');
-      // Use postMessage to control YouTube mute/unmute
-      // https://developers.google.com/youtube/iframe_api_reference
       if (isMuted) {
-        iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+        audio.volume = 1;
       } else {
-        iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+        audio.volume = 0;
       }
       isMuted = !isMuted;
     };
